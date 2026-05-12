@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Head area contains metadata and links shared files for styling and interactivity. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View the visual mood gallery for April Matcha Café.">
+  <title>April Matcha Café | Gallery</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <!-- Skip link improves accessibility and helps keyboard users move faster. -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Header connects all five website pages. -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="logo" href="index.html" aria-label="April Matcha Café home">
+        <span class="logo-mark" aria-hidden="true">🍵</span>
+        <span>April Matcha Café</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Menu</a></li>
+        <li><a class="active" href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content shows visual storytelling and filtered gallery cards. -->
+  <main id="main-content">
+    <!-- Gallery hero explains the visual story behind the café. -->
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Visual story</p>
+        <h1>A soft gallery for drinks, desserts, and café moments.</h1>
+        <p class="lead">This gallery uses original emoji/CSS illustration cards so the project avoids unlicensed images while still feeling visual and complete.</p>
+      </div>
+    </section>
+
+    <!-- Filter buttons add JavaScript interactivity and help visitors browse categories. -->
+    <section class="section">
+      <div class="container">
+        <div class="filter-row" aria-label="Gallery filters">
+          <!-- Data-filter values are used by JavaScript to show and hide matching cards. -->
+          <button class="filter-button active" type="button" data-filter="all">All</button>
+          <button class="filter-button" type="button" data-filter="drinks">Drinks</button>
+          <button class="filter-button" type="button" data-filter="desserts">Desserts</button>
+          <button class="filter-button" type="button" data-filter="space">Café Space</button>
+        </div>
+
+        <!-- Gallery cards use semantic articles and meaningful text descriptions. -->
+        <div class="grid-3">
+          <article class="card" data-category="drinks">
+            <div class="item-visual" aria-hidden="true">🍵</div>
+            <div class="card-body">
+              <h3>Classic green latte</h3>
+              <p>Clean matcha, creamy milk, and a calm color palette for the homepage mood.</p>
+            </div>
+          </article>
+          <article class="card" data-category="drinks">
+            <div class="item-visual" aria-hidden="true">🍓</div>
+            <div class="card-body">
+              <h3>Strawberry matcha</h3>
+              <p>A layered drink moment that gives the café a playful social-media friendly look.</p>
+            </div>
+          </article>
+          <article class="card" data-category="desserts">
+            <div class="item-visual" aria-hidden="true">🍰</div>
+            <div class="card-body">
+              <h3>Matcha dessert cup</h3>
+              <p>A dessert image concept for a cozy menu card and gallery story.</p>
+            </div>
+          </article>
+          <article class="card" data-category="desserts">
+            <div class="item-visual" aria-hidden="true">🍡</div>
+            <div class="card-body">
+              <h3>Mochi tasting set</h3>
+              <p>A small tasting moment that connects with the tea flight idea.</p>
+            </div>
+          </article>
+          <article class="card" data-category="space">
+            <div class="item-visual" aria-hidden="true">🪴</div>
+            <div class="card-body">
+              <h3>Plant corner</h3>
+              <p>A quiet corner with soft greenery to support the café’s relaxing personality.</p>
+            </div>
+          </article>
+          <article class="card" data-category="space">
+            <div class="item-visual" aria-hidden="true">💻</div>
+            <div class="card-body">
+              <h3>Study table</h3>
+              <p>A student-friendly workspace that supports the story of focus and comfort.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer closes the gallery page with repeated navigation. -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>April Matcha Café</strong>
+        <p>Gallery page with filter buttons, visual cards, hover effects, and accessible page structure.</p>
+      </div>
+      <div class="social-row" aria-label="Footer navigation">
+        <a href="services.html">Menu</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+</body>
+</html>

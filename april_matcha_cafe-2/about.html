@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Head section gives the browser information about this About page. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn the story and values behind April Matcha Café.">
+  <title>April Matcha Café | About</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <!-- Skip link helps keyboard users avoid repeated navigation. -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Same header appears on every page to connect the full website. -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="logo" href="index.html" aria-label="April Matcha Café home">
+        <span class="logo-mark" aria-hidden="true">🍵</span>
+        <span>April Matcha Café</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="about.html">About</a></li>
+        <li><a href="services.html">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content tells the café story and shows values. -->
+  <main id="main-content">
+    <!-- About hero introduces the brand personality. -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Our story</p>
+          <h1>Built for calm mornings and soft green rituals.</h1>
+          <p class="lead">April Matcha Café began as a capstone concept for a welcoming café where every page feels like a quiet visit: a soft greeting, a thoughtful menu, and a simple way to connect.</p>
+        </div>
+        <!-- This card provides a visual story without needing outside photos. -->
+        <aside class="card">
+          <div class="item-visual" aria-hidden="true">🌿</div>
+          <div class="card-body">
+            <h3>Brand promise</h3>
+            <p>Every drink is designed to feel peaceful, pretty, and memorable.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Values cards add interactive hover effects and make the story scannable. -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">Café values</p>
+        <h2>What April Matcha Café stands for.</h2>
+        <div class="grid-3">
+          <article class="feature-card">
+            <h3>Quality</h3>
+            <p>We highlight matcha as the star, using simple ingredients and balanced flavor.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Comfort</h3>
+            <p>The visual design uses warm cream, soft green, and rounded cards to feel welcoming.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Connection</h3>
+            <p>The site guides visitors from story to menu to gallery to a friendly contact experience.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accordion creates an additional interactive element on the About page. -->
+    <section class="section">
+      <div class="container card form-card">
+        <p class="eyebrow">Behind the name</p>
+        <h2>Small details, big feeling.</h2>
+        <!-- Each accordion item uses a button for accessibility and JavaScript opens the panel. -->
+        <div class="accordion-item open">
+          <button class="accordion-button" type="button" aria-expanded="true">Why “April”? <span aria-hidden="true">+</span></button>
+          <div class="accordion-panel">
+            <p>April suggests spring, new beginnings, soft colors, and fresh energy—perfect for a matcha café story.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button" type="button" aria-expanded="false">Who is the café for? <span aria-hidden="true">+</span></button>
+          <div class="accordion-panel">
+            <p>It is for students, friends, remote workers, and anyone who wants a gentle café moment.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button" type="button" aria-expanded="false">What makes the website stronger? <span aria-hidden="true">+</span></button>
+          <div class="accordion-panel">
+            <p>The site uses consistent navigation, responsive layouts, comments, accessibility, and meaningful JavaScript interactions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer gives final navigation and project context. -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>April Matcha Café</strong>
+        <p>About page with story, values, hover cards, and accordion interaction.</p>
+      </div>
+      <div class="social-row" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Menu</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+</body>
+</html>

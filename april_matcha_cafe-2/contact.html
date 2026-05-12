@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Head section includes the page title, responsive viewport, shared CSS, and deferred JavaScript. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact April Matcha Café with an accessible form, validation, character counter, and FAQ accordion.">
+  <title>April Matcha Café | Contact</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <!-- Skip link lets keyboard users move directly to the contact content. -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Header connects the Contact page to all other pages in the capstone website. -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <!-- Logo link returns visitors to the homepage. -->
+      <a class="logo" href="index.html" aria-label="April Matcha Café home">
+        <span class="logo-mark" aria-hidden="true">🍵</span>
+        <span>April Matcha Café</span>
+      </a>
+      <!-- Mobile menu button is keyboard accessible and controlled by JavaScript. -->
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <!-- Every page is linked here to meet the assignment requirement that pages work together. -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a class="active" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main area contains the required contact form and extra interactive elements. -->
+  <main id="main-content">
+    <!-- Contact hero makes the form feel welcoming instead of plain. -->
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Get in touch</p>
+        <h1>Plan your next matcha moment.</h1>
+        <p class="lead">Use this page to ask a question, reserve a tea tasting flight, or send a note about April Matcha Café. The form includes visible labels, helper text, inline errors, ARIA support, and a success confirmation.</p>
+      </div>
+    </section>
+
+    <!-- Contact grid separates the form from contact details and FAQ content. -->
+    <section class="section">
+      <div class="container contact-grid">
+        <!-- The form card contains the required semantic form fields. -->
+        <div class="card form-card">
+          <h2>Send a message</h2>
+          <p class="helper">Replace the Formspree placeholder URL with your real Formspree endpoint before submitting the final site.</p>
+
+          <!-- Error summary uses aria-live so assistive technology announces validation updates. -->
+          <p id="errorSummary" class="error" aria-live="polite"></p>
+
+          <!-- Formspree action is included as a placeholder so the form can become real after adding the user endpoint. -->
+          <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+            <!-- Name field has a visible label, required attribute, helper text, and inline error area. -->
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" required placeholder="Your full name" aria-describedby="nameHelp nameError">
+              <p id="nameHelp" class="helper">Enter the name you want us to use when replying.</p>
+              <p id="nameError" class="error" aria-live="polite"></p>
+            </div>
+
+            <!-- Email field checks for required entry and valid email format in JavaScript. -->
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@example.com" aria-describedby="emailHelp emailError">
+              <p id="emailHelp" class="helper">We will only use this email to respond to your message.</p>
+              <p id="emailError" class="error" aria-live="polite"></p>
+            </div>
+
+            <!-- Subject field helps organize messages and is validated as required. -->
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" required placeholder="Tea tasting, menu question, or reservation" aria-describedby="subjectHelp subjectError">
+              <p id="subjectHelp" class="helper">A short subject helps us answer faster.</p>
+              <p id="subjectError" class="error" aria-live="polite"></p>
+            </div>
+
+            <!-- Message field includes a character counter and minimum length validation. -->
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required placeholder="Tell us how we can help..." aria-describedby="messageHelp charCounter messageError"></textarea>
+              <p id="messageHelp" class="helper">Please write at least 40 characters so your message is clear.</p>
+              <p id="charCounter" class="helper" aria-live="polite">0/40 minimum characters</p>
+              <p id="messageError" class="error" aria-live="polite"></p>
+            </div>
+
+            <!-- Submit button is reachable by keyboard and styled with visible focus. -->
+            <button class="btn btn-primary" type="submit">Send message</button>
+          </form>
+
+          <!-- Success card is hidden until JavaScript confirms the form is valid. -->
+          <div id="successCard" class="success-card" tabindex="-1" aria-live="polite">
+            <h3>Thank you for reaching out! 🍵</h3>
+            <p>Your message passed validation. Once your real Formspree link is added, this contact form can send messages.</p>
+          </div>
+        </div>
+
+        <!-- Aside gives extra contact details and interactive FAQ accordion. -->
+        <aside class="card form-card">
+          <p class="eyebrow">Visit and ask</p>
+          <h2>Contact details</h2>
+          <p><strong>Location:</strong> Fairfax, Virginia café concept</p>
+          <p><strong>Email:</strong> hello@aprilmatchacafe.example</p>
+          <p><strong>Hours:</strong> Monday–Saturday, 8:00 AM–6:00 PM</p>
+
+          <!-- FAQ accordion is the additional required interactive element. -->
+          <h3>FAQ</h3>
+          <div class="accordion-item open">
+            <button class="accordion-button" type="button" aria-expanded="true">Do you offer tea tasting flights? <span aria-hidden="true">+</span></button>
+            <div class="accordion-panel">
+              <p>Yes. The tea tasting flight includes three small matcha drinks for comparison.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-button" type="button" aria-expanded="false">Can I request oat milk? <span aria-hidden="true">+</span></button>
+            <div class="accordion-panel">
+              <p>Yes. Oat, almond, and dairy milk options are part of the café concept.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-button" type="button" aria-expanded="false">Is this page accessible? <span aria-hidden="true">+</span></button>
+            <div class="accordion-panel">
+              <p>The page includes labels, focus styles, ARIA descriptions, reduced-motion support, inline errors, and keyboard-friendly buttons.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer repeats site links and reinforces that this is the contact milestone page. -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>April Matcha Café</strong>
+        <p>Contact page with Formspree placeholder, JavaScript validation, success state, character counter, FAQ accordion, and accessible labels.</p>
+      </div>
+      <div class="social-row" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back-to-top button is an extra shared interaction controlled by JavaScript. -->
+  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+</body>
+</html>
