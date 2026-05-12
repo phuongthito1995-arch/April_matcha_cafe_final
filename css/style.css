@@ -1,0 +1,663 @@
+/* =========================================================
+   April Matcha Café - Shared Style Sheet
+   This CSS file controls the full website so all five pages
+   feel consistent and easy to maintain.
+   ========================================================= */
+
+/* Google Font import gives the café a soft editorial look while keeping text readable. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+
+/* Root variables store brand colors and spacing so every page uses the same design system. */
+:root {
+  --matcha-dark: #22351f;
+  --matcha: #668c43;
+  --matcha-light: #dfecc8;
+  --cream: #fff8ea;
+  --latte: #ead7bb;
+  --rose: #df927f;
+  --ink: #1e271b;
+  --muted: #63705b;
+  --white: #ffffff;
+  --shadow: 0 18px 45px rgba(34, 53, 31, 0.14);
+  --radius: 24px;
+  --max-width: 1180px;
+}
+
+/* Border-box sizing prevents padding from accidentally making cards overflow on mobile screens. */
+* {
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling creates a polished experience when visitors jump to sections. */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body styles set the site background, default font, and comfortable reading color. */
+body {
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--cream), #f6f0dc 55%, #eef5df);
+  line-height: 1.65;
+}
+
+/* Skip link improves keyboard accessibility by letting users jump past repeated navigation. */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 1000;
+  background: var(--matcha-dark);
+  color: var(--white);
+  padding: .8rem 1rem;
+  border-radius: 999px;
+  transition: top .2s ease;
+}
+
+/* The skip link becomes visible when focused from the keyboard. */
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Links use the brand green and become more visible on hover/focus. */
+a {
+  color: var(--matcha-dark);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--matcha);
+}
+
+/* Images scale down safely inside cards and sections. */
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Header sticks to the top so visitors can navigate easily on long pages. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 248, 234, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(34, 53, 31, 0.12);
+}
+
+/* Navigation uses flexbox to keep logo and links balanced. */
+.navbar {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Logo combines a circular icon with the café name for branding. */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+/* Logo mark looks like a tiny matcha bowl and creates a memorable brand symbol. */
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #f8ffd9, var(--matcha-light) 45%, var(--matcha) 100%);
+  box-shadow: inset 0 -7px 12px rgba(34, 53, 31, .18);
+}
+
+/* Desktop navigation link group. */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation links use rounded pills and animated hover states for interactivity. */
+.nav-links a {
+  display: inline-flex;
+  padding: .7rem .9rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: background .2s ease, transform .2s ease;
+}
+
+/* Hover animation is a simple micro-interaction required by the project. */
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--matcha-light);
+  transform: translateY(-1px);
+}
+
+/* Mobile menu button is hidden on desktop and revealed by media query. */
+.nav-toggle {
+  display: none;
+  border: 0;
+  border-radius: 999px;
+  background: var(--matcha-dark);
+  color: var(--white);
+  padding: .75rem 1rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* Shared focus style makes keyboard navigation visible across the site. */
+:focus-visible {
+  outline: 4px solid #ffcc66;
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+/* Main content container keeps pages aligned. */
+.container {
+  width: min(100% - 2rem, var(--max-width));
+  margin: 0 auto;
+}
+
+/* Hero sections create an emotional first impression for each page. */
+.hero {
+  padding: clamp(3rem, 7vw, 6rem) 0;
+}
+
+/* Hero grid becomes two columns on larger screens for storytelling and visuals. */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+/* Eyebrow text labels each story section with a small café-style detail. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin: 0 0 1rem;
+  color: var(--matcha-dark);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: .78rem;
+}
+
+/* Large headings use Playfair Display to make the café feel premium. */
+h1,
+h2,
+h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  line-height: 1.06;
+  color: var(--matcha-dark);
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: clamp(2.7rem, 7vw, 5.8rem);
+  letter-spacing: -.055em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -.04em;
+}
+
+h3 {
+  font-size: 1.45rem;
+}
+
+/* Lead paragraph keeps introduction text spacious and readable. */
+.lead {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--muted);
+  max-width: 63ch;
+}
+
+/* Button row keeps calls-to-action neat on mobile and desktop. */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .9rem;
+  margin-top: 1.6rem;
+}
+
+/* Primary and secondary buttons share shape while having different visual weight. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  border-radius: 999px;
+  padding: .9rem 1.15rem;
+  font-weight: 800;
+  border: 2px solid var(--matcha-dark);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+/* Button hover is another meaningful interactive element for each page. */
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.btn-primary {
+  background: var(--matcha-dark);
+  color: var(--white);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, .6);
+  color: var(--matcha-dark);
+}
+
+/* Visual cards contain images, menu items, stories, and contact details. */
+.card {
+  background: rgba(255, 255, 255, .78);
+  border: 1px solid rgba(34, 53, 31, .11);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Inner card padding gives repeated components consistent spacing. */
+.card-body {
+  padding: 1.35rem;
+}
+
+/* Feature grid is reused on several pages to show three clear highlights. */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+/* Feature cards lift on hover to make the page feel interactive and alive. */
+.feature-card {
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, .74);
+  border: 1px solid rgba(34, 53, 31, .1);
+  transition: transform .2s ease, background .2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  background: var(--white);
+}
+
+/* Decorative hero image uses CSS gradients so the asset is original and lightweight. */
+.matcha-art {
+  min-height: 430px;
+  border-radius: 38px;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255,255,255,.85) 0 12%, transparent 13%),
+    radial-gradient(circle at 50% 55%, #9dbd6b 0 24%, #5d833b 25% 34%, transparent 35%),
+    radial-gradient(circle at 50% 66%, #ead7bb 0 36%, transparent 37%),
+    linear-gradient(135deg, #fff8ea, #dfecc8 45%, #df927f 100%);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* Steam lines are decorative and animated to add delight without requiring external images. */
+.matcha-art::before,
+.matcha-art::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 120px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.65);
+  top: 56px;
+  left: 40%;
+  filter: blur(.5px);
+  animation: steam 4s ease-in-out infinite;
+}
+
+.matcha-art::after {
+  left: 58%;
+  animation-delay: 1.2s;
+}
+
+/* Steam animation supports the project requirement for motion and storytelling. */
+@keyframes steam {
+  0%, 100% { transform: translateY(10px) rotate(8deg); opacity: .25; }
+  50% { transform: translateY(-12px) rotate(-8deg); opacity: .85; }
+}
+
+/* Sections are spaced generously to avoid a crowded layout. */
+.section {
+  padding: clamp(2.8rem, 6vw, 5rem) 0;
+}
+
+/* Section header keeps titles and descriptions aligned. */
+.section-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Grid utility for repeated card layouts. */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* Menu and gallery item images are original CSS illustrations with consistent aspect ratio. */
+.item-visual {
+  min-height: 220px;
+  background: linear-gradient(135deg, var(--matcha-light), #fff8ea);
+  display: grid;
+  place-items: center;
+  font-size: 4rem;
+}
+
+/* Pricing and small tags are styled as pills to guide scanning. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .35rem .7rem;
+  border-radius: 999px;
+  background: var(--matcha-light);
+  color: var(--matcha-dark);
+  font-weight: 800;
+  font-size: .85rem;
+}
+
+/* Story strip creates a horizontal callout with a warm background. */
+.story-strip {
+  background: linear-gradient(135deg, rgba(223,146,127,.18), rgba(102,140,67,.22));
+  border-radius: 34px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid rgba(34, 53, 31, .1);
+}
+
+/* Accordion buttons are interactive and keyboard-accessible. */
+.accordion-button {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: var(--white);
+  color: var(--matcha-dark);
+  padding: 1rem;
+  border-radius: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Accordion panels are hidden until JavaScript opens them. */
+.accordion-panel {
+  display: none;
+  padding: 0 1rem 1rem;
+  color: var(--muted);
+}
+
+/* Open accordion state is controlled by JavaScript. */
+.accordion-item.open .accordion-panel {
+  display: block;
+}
+
+/* Tab buttons support the menu page interactive filter. */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.tab-button {
+  border: 2px solid rgba(34, 53, 31, .18);
+  background: rgba(255,255,255,.7);
+  color: var(--matcha-dark);
+  border-radius: 999px;
+  padding: .7rem 1rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  background: var(--matcha-dark);
+  color: var(--white);
+}
+
+/* Gallery filter chips make the visual page interactive and organized. */
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-bottom: 1rem;
+}
+
+.filter-button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 999px;
+  padding: .7rem 1rem;
+  background: var(--matcha-light);
+  color: var(--matcha-dark);
+  font-weight: 800;
+}
+
+.filter-button.active {
+  background: var(--matcha-dark);
+  color: var(--white);
+}
+
+/* Contact page grid separates form and helpful contact information. */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* Form styling creates clear visual grouping for accessibility. */
+.form-card {
+  padding: 1.3rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* Visible labels are required by the assignment and support screen readers. */
+label {
+  display: block;
+  font-weight: 800;
+  color: var(--matcha-dark);
+  margin-bottom: .35rem;
+}
+
+/* Form controls have high contrast and large tap targets. */
+input,
+textarea,
+select {
+  width: 100%;
+  border: 2px solid rgba(34, 53, 31, .22);
+  border-radius: 16px;
+  padding: .9rem 1rem;
+  font: inherit;
+  background: #fffdf6;
+  color: var(--ink);
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* Helper text explains what the user should enter. */
+.helper {
+  color: var(--muted);
+  font-size: .9rem;
+  margin: .3rem 0 0;
+}
+
+/* Error text appears inline near each field, not as an alert popup. */
+.error {
+  color: #8b1e1e;
+  font-weight: 800;
+  min-height: 1.25rem;
+  margin: .25rem 0 0;
+}
+
+/* Success card starts hidden and JavaScript shows it when validation passes. */
+.success-card {
+  display: none;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 20px;
+  background: #e8f4d7;
+  border: 2px solid var(--matcha);
+  animation: pop .35s ease both;
+}
+
+.success-card.show {
+  display: block;
+}
+
+/* Small success animation makes the confirmation feel warm and intentional. */
+@keyframes pop {
+  from { opacity: 0; transform: scale(.96) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Footer closes the site with repeated navigation and brand details. */
+.site-footer {
+  margin-top: 3rem;
+  padding: 2rem 0;
+  background: var(--matcha-dark);
+  color: var(--cream);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.site-footer a {
+  color: var(--cream);
+  font-weight: 800;
+}
+
+/* Social links use hover movement for an additional micro-interaction. */
+.social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+
+.social-row a {
+  display: inline-flex;
+  padding: .6rem .8rem;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 999px;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.social-row a:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,.12);
+}
+
+/* Back-to-top button appears after scrolling, controlled by JavaScript. */
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  border: 0;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  background: var(--matcha-dark);
+  color: var(--white);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Responsive layout for tablets and phones. */
+@media (max-width: 840px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: 74px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--white);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    padding: .7rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hero-grid,
+  .contact-grid,
+  .footer-grid,
+  .section-header {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .feature-grid,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .matcha-art {
+    min-height: 300px;
+  }
+}
+
+/* Reduced motion respects users who prefer fewer animations. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .001ms !important;
+  }
+}
